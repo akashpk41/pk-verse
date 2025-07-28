@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PK Verse Pro - Ultimate Movie Experience</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/2.51.5/full.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #8b5cf6;
+            --primary-blue: #06b6d4;
+            --primary-pink: #ec4899;
+            --primary-gold: #f59e0b;
+            --bg-dark: #0a0a0f;
+            --bg-card: rgba(15, 15, 25, 0.95);
+        }
+
+        * {
+            box-sizing: border-box;
+
+        }
+
+        body {
+            background:
+                radial-gradient(ellipse at top left, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at top right, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
+                linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Advanced Particle System */
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(1px);
+        }
+
+        .particle-small {
+            width: 2px;
+            height: 2px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.8) 0%, transparent 70%);
+            animation: particleFloat 8s ease-in-out infinite;
+        }
+
+        .particle-medium {
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.6) 0%, transparent 70%);
+            animation: particleFloat 12s ease-in-out infinite;
+        }
+
+        .particle-large {
+            width: 6px;
+            height: 6px;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.4) 0%, transparent 70%);
+            animation: particleFloat 15s ease-in-out infinite;
+        }
+
+        @keyframes particleFloat {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
+                opacity: 0.3;
+            }
+            25% {
+                transform: translateY(-30px) translateX(15px) rotate(90deg) scale(1.2);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateY(-60px) translateX(-10px) rotate(180deg) scale(0.8);
+                opacity: 1;
+            }
+            75% {
+                transform: translateY(-30px) translateX(-20px) rotate(270deg) scale(1.1);
+                opacity: 0.6;
+            }
+        }
+
+        /* Ultra Modern Navigation */
+        .navbar-ultra {
+            backdrop-filter: blur(30px);
+            background: rgba(10, 10, 15, 0.92);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+            box-shadow:
+                0 10px 40px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .navbar-ultra::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg,
+                rgba(139, 92, 246, 0.1) 0%,
+                rgba(6, 182, 212, 0.1) 50%,
+                rgba(236, 72, 153, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .navbar-ultra.scrolled::before {
+            opacity: 1;
+        }
+
+        /* Logo with Advanced Animation */
+        .logo-ultra {
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4, #ec4899, #f59e0b, #10b981);
+            background-size: 500% 500%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: ultraGradient 8s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+            position: relative;
+        }
+
+        .logo-ultra::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4, #ec4899);
+            background-size: 200% 200%;
+            animation: shimmer 3s ease-in-out infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+            filter: blur(20px);
+        }
+
+        .logo-ultra:hover::after {
+            opacity: 0.3;
+        }
+
+        @keyframes ultraGradient {
+            0%, 100% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Hero Section with Cinema-Grade Effects */
+        .hero-cinema {
+            background:
+                linear-gradient(45deg, rgba(139, 92, 246, 0.15) 0%, transparent 30%, rgba(6, 182, 212, 0.15) 70%, transparent 100%),
+                linear-gradient(to right, rgba(0,0,0,0.95), rgba(0,0,0,0.3), rgba(0,0,0,0.95)),
+                url('https://images.unsplash.com/photo-1489599558418-b9b0e1b5e9fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-cinema::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.4) 70%),
+                conic-gradient(from 0deg, rgba(139, 92, 246, 0.1), rgba(6, 182, 212, 0.1), rgba(236, 72, 153, 0.1), rgba(139, 92, 246, 0.1));
+            animation: heroBreath 6s ease-in-out infinite;
+        }
+
+        @keyframes heroBreath {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.02); }
+        }
+
+        /* Ultra Professional Movie Cards */
+        .movie-card-ultra {
+            background: linear-gradient(145deg,
+                rgba(15, 15, 25, 0.98),
+                rgba(22, 33, 62, 0.95),
+                rgba(15, 15, 25, 0.98));
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            backdrop-filter: blur(25px);
+            border-radius: 28px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-style: preserve-3d;
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .movie-card-ultra::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: conic-gradient(from 0deg,
+                rgba(139, 92, 246, 0.1),
+                rgba(6, 182, 212, 0.1),
+                rgba(236, 72, 153, 0.1),
+                rgba(245, 158, 11, 0.1),
+                rgba(139, 92, 246, 0.1));
+            opacity: 0;
+            transition: all 0.5s ease;
+            z-index: 1;
+        }
+
+        .movie-card-ultra::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg,
+                transparent,
+                rgba(255, 255, 255, 0.05),
+                transparent);
+            transform: rotate(45deg);
+            transition: all 0.8s ease;
+            opacity: 0;
+            z-index: 2;
+        }
+
+        .movie-card-ultra:hover::before {
+            opacity: 1;
+            animation: rotate 4s linear infinite;
+        }
+
+        .movie-card-ultra:hover::after {
+            opacity: 1;
+            transform: rotate(45deg) translate(50%, 50%);
+        }
+
+        .movie-card-ultra:hover {
+            transform: translateY(-25px) rotateX(8deg) rotateY(2deg) scale(1.08);
+            box-shadow:
+                0 50px 120px -20px rgba(139, 92, 246, 0.4),
+                0 0 80px rgba(139, 92, 246, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border-color: rgba(139, 92, 246, 0.8);
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Cinema-Quality Poster Effects */
+        .poster-cinema {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            filter: brightness(0.9) contrast(1.1) saturate(1.1);
+        }
+
+        .movie-card-ultra:hover .poster-cinema {
+            transform: scale(1.2) rotate(1deg);
+            filter: brightness(1.2) contrast(1.3) saturate(1.4) hue-rotate(5deg);
+        }
+
+        /* Premium Play Overlay */
+        .play-overlay-cinema {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at center, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%),
+                linear-gradient(45deg, rgba(139, 92, 246, 0.2), rgba(6, 182, 212, 0.2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            z-index: 3;
+        }
+
+        .movie-card-ultra:hover .play-overlay-cinema {
+            opacity: 1;
+        }
+
+        .play-btn-cinema {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: scale(0.5) rotate(-180deg);
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow:
+                0 20px 60px rgba(139, 92, 246, 0.6),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3);
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .play-btn-cinema::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: sweep 2s ease-in-out infinite;
+        }
+
+        @keyframes sweep {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .movie-card-ultra:hover .play-btn-cinema {
+            transform: scale(1) rotate(0deg);
+            box-shadow:
+                0 30px 80px rgba(139, 92, 246, 0.8),
+                0 0 100px rgba(6, 182, 212, 0.4);
+        }
+
+        /* Premium Rating Badge */
+        .rating-badge-cinema {
+            background: linear-gradient(45deg, #f59e0b, #f97316, #ef4444);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow:
+                0 10px 30px rgba(245, 158, 11, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            font-weight: 900;
+            animation: ratingGlow 4s ease-in-out infinite;
+            backdrop-filter: blur(10px);
+            z-index: 4;
+        }
+
+        @keyframes ratingGlow {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 10px 30px rgba(245, 158, 11, 0.5);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 15px 40px rgba(245, 158, 11, 0.8);
+            }
+        }
+
+        /* Section Title Effects */
+        .section-title-cinema {
+            position: relative;
+            display: inline-block;
+            text-shadow: 0 0 50px rgba(139, 92, 246, 0.5);
+        }
+
+        .section-title-cinema::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4, #ec4899, #f59e0b);
+            background-size: 400% 400%;
+            animation: titleGlow 6s ease-in-out infinite;
+            filter: blur(20px);
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .section-title-cinema::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 6px;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4, #ec4899);
+            border-radius: 3px;
+            animation: titleUnderline 3s ease-in-out infinite;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes titleUnderline {
+            0%, 100% { width: 150px; }
+            50% { width: 200px; }
+        }
+
+        /* Floating Elements Enhancement */
+        .floating-cinema {
+            position: absolute;
+            font-size: 24px;
+            animation: floatCinema 15s linear infinite;
+            filter: drop-shadow(0 0 10px currentColor);
+        }
+
+        @keyframes floatCinema {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+                transform: translateY(90vh) rotate(36deg) scale(0.8);
+            }
+            90% {
+                opacity: 0.8;
+                transform: translateY(-10vh) rotate(324deg) scale(1.2);
+            }
+            100% {
+                transform: translateY(-20vh) rotate(360deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* Premium Button Styles */
+        .btn-cinema {
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow:
+                0 15px 35px rgba(139, 92, 246, 0.4),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-cinema::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .btn-cinema:hover::before {
+            opacity: 1;
+            transform: rotate(45deg) translate(50%, 50%);
+        }
+
+        .btn-cinema:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow:
+                0 25px 50px rgba(139, 92, 246, 0.6),
+                inset 0 2px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        /* Scroll Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in-up.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Search Enhancement */
+        .search-cinema {
+            background: rgba(15, 15, 25, 0.9);
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+        }
+
+        .search-cinema:focus {
+            border-color: rgba(139, 92, 246, 0.8);
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+        }
+    </style>
+</head>
+<body class="scroll-smooth">
+    <!-- Ultra Advanced Particle System -->
+    <div class="particles-container">
+        <!-- Small particles -->
+        <div class="particle particle-small" style="left: 5%; top: 10%; animation-delay: 0s;"></div>
+        <div class="particle particle-small" style="left: 15%; top: 30%; animation-delay: 1s;"></div>
+        <div class="particle particle-small" style="left: 25%; top: 50%; animation-delay: 2s;"></div>
+        <div class="particle particle-small" style="left: 35%; top: 70%; animation-delay: 3s;"></div>
+        <div class="particle particle-small" style="left: 45%; top: 20%; animation-delay: 4s;"></div>
+        <div class="particle particle-small" style="left: 55%; top: 40%; animation-delay: 5s;"></div>
+        <div class="particle particle-small" style="left: 65%; top: 60%; animation-delay: 6s;"></div>
+        <div class="particle particle-small" style="left: 75%; top: 80%; animation-delay: 7s;"></div>
+        <div class="particle particle-small" style="left: 85%; top: 15%; animation-delay: 8s;"></div>
+        <div class="particle particle-small" style="left: 95%; top: 35%; animation-delay: 9s;"></div>
+
+        <!-- Medium particles -->
+        <div class="particle particle-medium" style="left: 10%; top: 25%; animation-delay: 0.5s;"></div>
+        <div class="particle particle-medium" style="left: 30%; top: 45%; animation-delay: 2.5s;"></div>
+        <div class="particle particle-medium" style="left: 50%; top: 65%; animation-delay: 4.5s;"></div>
+        <div class="particle particle-medium" style="left: 70%; top: 25%; animation-delay: 6.5s;"></div>
+        <div class="particle particle-medium" style="left: 90%; top: 55%; animation-delay: 8.5s;"></div>
+
+        <!-- Large particles -->
+        <div class="particle particle-large" style="left: 20%; top: 15%; animation-delay: 1.5s;"></div>
+        <div class="particle particle-large" style="left: 60%; top: 35%; animation-delay: 5.5s;"></div>
+        <div class="particle particle-large" style="left: 80%; top: 75%; animation-delay: 9.5s;"></div>
+    </div>
+
+    <!-- Floating Cinema Elements -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <i class="floating-cinema fas fa-film text-purple-400" style="left: 5%; animation-delay: 0s; animation-duration: 20s;"></i>
+        <i class="floating-cinema fas fa-star text-yellow-400" style="left: 15%; animation-delay: 3s; animation-duration: 25s;"></i>
+        <i class="floating-cinema fas fa-heart text-pink-400" style="left: 25%; animation-delay: 6s; animation-duration: 18s;"></i>
+        <i class="floating-cinema fas fa-crown text-gold-400" style="left: 35%; animation-delay: 9s; animation-duration: 22s;"></i>
+        <i class="floating-cinema fas fa-gem text-cyan-400" style="left: 45%; animation-delay: 12s; animation-duration: 24s;"></i>
+        <i class="floating-cinema fas fa-magic text-purple-400" style="left: 55%; animation-delay: 15s; animation-duration: 19s;"></i>
+        <i class="floating-cinema fas fa-rocket text-blue-400" style="left: 65%; animation-delay: 18s; animation-duration: 26s;"></i>
+        <i class="floating-cinema fas fa-bolt text-yellow-400" style="left: 75%; animation-delay: 21s; animation-duration: 17s;"></i>
+        <i class="floating-cinema fas fa-fire text-orange-400" style="left: 85%; animation-delay: 24s; animation-duration: 23s;"></i>
+        <i class="floating-cinema fas fa-diamond text-pink-400" style="left: 95%; animation-delay: 27s; animation-duration: 21s;"></i>
+    </div>
+
+    <!-- Ultra Modern Navigation -->
+    <div class="navbar navbar-ultra fixed top-0 z-50 px-6 lg:px-12">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <label tabindex="0" class="btn btn-ghost lg:hidden hover:bg-purple-500/20">
+                    <i class="fas fa-bars text-2xl text-purple-400"></i>
+                </label>
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-2xl bg-base-100 rounded-3xl w-64 border border-purple-500/30">
+                    <li><a href="#trending" class="hover:text-purple-400 text-lg py-3">🔥 Trending</a></li>
+                    <li><a href="#hollywood" class="hover:text-blue-400 text-lg py-3">🎬 Hollywood</a></li>
+                    <li><a href="#bollywood" class="hover:text-green-400 text-lg py-3">🎭 Bollywood</a></li>
+                    <li><a href="#south-indian" class="hover:text-yellow-400 text-lg py-3">🐉 South Indian</a></li>
+                </ul>
+            </div>
+            <a class="text-4xl font-black logo-ultra tracking-wider cursor-pointer">
+                ✨ PK Verse Pro
+            </a>
+        </div>
+
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1 text-xl font-semibold space-x-4">
+                <li><a href="#trending" class="hover:text-purple-400 transition-all duration-300 hover:scale-110 px-6 py-3 rounded-full hover:bg-purple-500/10">🔥 Trending</a></li>
+                <li><a href="#hollywood" class="hover:text-blue-400 transition-all duration-300 hover:scale-110 px-6 py-3 rounded-full hover:bg-blue-500/10">🎬 Hollywood</a></li>
+                <li><a href="#bollywood" class="hover:text-green-400 transition-all duration-300 hover:scale-110 px-6 py-3 rounded-full hover:bg-green-500/10">🎭 Bollywood</a></li>
+                <li><a href="#south-indian" class="hover:text-yellow-400 transition-all duration-300 hover:scale-110 px-6 py-3 rounded-full hover:bg-yellow-500/10">🐉 South Indian</a></li>
+            </ul>
+        </div>
+
+        <div class="navbar-end">
+            <div class="form-control mr-6">
+                <div class="relative">
+                    <input type="text" placeholder="Search epic movies..." class="input search-cinema w-24 md:w-80 pl-12 pr-4 py-3 rounded-full text-lg font-medium" />
+                    <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-purple-400 text-xl"></i>
+                </div>
+            </div>
+            <div class="dropdown dropdown-end">
+                <label tabindex="0" class="btn btn-ghost btn-circle avatar hover:scale-110 transition-all duration-300">
+                    <div class="w-12 rounded-full ring-4 ring-purple-500/50 hover:ring-purple-400">
+                        <img src="akash-pk.jpg" alt="User Avatar" class="rounded-full" />
+                    </div>
+                </label>
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow-2xl bg-base-100 rounded-3xl w-64 border border-purple-500/30">
+                    <li><a class="hover:text-purple-400 text-lg py-3">⚙️ Settings</a></li>
+                    <li><a class="hover:text-red-400 text-lg py-3">🚪 Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ultra Cinematic Hero Section -->
+    <section class="hero  hero-cinema relative overflow-hidden">
+        <div class="hero-overlay bg-opacity-40"></div>
+        <div class="hero-content text-center text-neutral-content relative z-10 fade-in-up">
+            <div class="max-w-6xl">
+                <h1 class="mb-10 text-8xl md:text-9xl lg:text-10xl font-black logo-ultra leading-none">
+                    EPIC CINEMA
+                </h1>
+                <h2 class="mb-8 text-4xl md:text-6xl font-bold text-white drop-shadow-2xl">
+                    Ultimate Movie Universe
+                </h2>
+                <p class="mb-12 text-2xl md:text-3xl max-w-4xl mx-auto opacity-95 leading-relaxed font-medium">
+                    🎬 Experience unlimited blockbusters from Hollywood, Bollywood, and South Indian cinema.
+                    Stream in stunning 8K quality with zero interruptions. Your premium entertainment destination awaits!
+                </p>
+                <div class="flex flex-col sm:flex-row gap-8 justify-center mb-12">
+                    <button class="btn btn-cinema btn-lg text-white font-bold text-2xl px-12 py-6 rounded-full min-w-64">
+                        <i class="fas fa-play mr-4 text-2xl"></i>
+                        🚀 Start Watching Now
+                    </button>
+                    <button class="btn btn-outline btn-lg text-white border-4 border-white hover:bg-white hover:text-black font-bold text-2xl px-12 py-6 rounded-full min-w-64">
+                        <i class="fas fa-info-circle mr-4 text-2xl"></i>
+                        📖 Explore Features
+                    </button>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto text-lg opacity-90 font-semibold">
+                    <div class="flex flex-col items-center space-y-2">
+                        <div class="text-4xl">✅</div>
+                        <span>8K Quality</span>
+                    </div>
+                    <div class="flex flex-col items-center space-y-2">
+                        <div class="text-4xl">🚫</div>
+                        <span>Zero Ads</span>
+                    </div>
+                    <div class="flex flex-col items-center space-y-2">
+                        <div class="text-4xl">📱</div>
+                        <span>Offline Downloads</span>
+                    </div>
+                    <div class="flex flex-col items-center space-y-2">
+                        <div class="text-4xl">🌍</div>
+                        <span>50+ Languages</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-4xl opacity-80 text-purple-400"></i>
+        </div>
+    </section>
+
+    <!-- Ultra Trending Movies Section -->
+    <section id="trending" class="py-32  px-6 lg:px-12 relative z-10">
+        <div class="max-w-8xl mx-auto">
+            <h2 class="text-6xl md:text-8xl font-black mb-20 text-center section-title-cinema fade-in-up">
+                <i class="fas fa-fire text-orange-500 mr-8"></i>
+                <span class="logo-ultra">TRENDING NOW</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10 fade-in-up">
+                <!-- Movie Card 1 -->
+                <div class="movie-card-ultra cursor-pointer group">
+                    <figure class="relative overflow-hidden h-96">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/a/a8/Coolie_%282025_film%29_poster.jpg" alt="Oppenheimer" class="poster-cinema" />
+                        <div class="absolute top-4 right-4 badge rating-badge-cinema font-bold text-lg px-4 py-2">🔥 9.1</div>
+                        <div class="play-overlay-cinema">
+                            <div class="play-btn-cinema">
+                                <i class="fas fa-play text-white text-3xl ml-2"></i>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="card-body p-6 relative z-5">
+                        <h3 class="card-title text-2xl font-bold text-white mb-2">Coolie</h3>
+                        <p class="text-base opacity-80 mb-4 font-medium">2025 • Drama • Biography</p>
+                        <div class="flex justify-between items-center">
+                            <div class="rating rating-md">
+                                <input type="radio" name="rating-1" class="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" name="rating-1" class="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" name="rating-1" class="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" name="rating-1" class="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" name="rating-1" class="mask mask-star-2 bg-orange-400" checked />
+                            </div>
+                            <button class="btn btn-cinema btn-sm rounded-full font-bold text-base px-6">
+                                <i class="fas fa-play mr-2"></i>
+                                Play
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Movie Card 2 -->
+                <div class="movie-card-ultra cursor-pointer group">
+                    <figure class="relative overflow-hidden h-96">
+                        <img src="https://akm-img-a-in.tosshub.com/indiatoday/styles/medium_crop_simple/public/2025-06/hrithik_roshan_war_2.jpg?VersionId=TIETCDcn05P5w.UgJoXJb7Nicp5UGm9N&size=750:*" alt="Avatar 2" class="poster-cinema" />
+                        <div class="absolute top-4 right-4 badge rating-badge-cinema font-bold text-lg px-4 py-2">🔥 8.8</div>
+                        <div class="play-overlay-cinema">
+                            <div class="play-btn-cinema">
+                                <i class="fas fa-play text-white text-3xl ml-2"></i>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="card-body p-6 relative z-5">
+                        <h3 class="card-title text-2xl font-bold text-white mb-2">War 2</h3>
+                        <p class="text-base opacity-80 mb-4 font-medium">2025 • Sci-Fi • Adventure</p>
+                        <div class="flex justify-between items-center">
+                            <div class="rating rating-md">
+                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                            </div>
+                            <button class="btn btn-cinema btn-sm rounded-full font-bold text-base px-6">
+                                <i class="fas fa-play mr-2"></i>
+                                Play
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Movie Card 3 -->
+                <div class="movie-card-ultra cursor-pointer group">
+                    <figure class="relative overflow-hidden h-96">
+                        <img src="https://m.media-amazon.com/images/M/MV5BZmMwZTk1MDctMjM1My00YTA5LTg0YmYtZWE5Y2Q4N2JhZGQ1XkEyXkFqcGc@._V1_.jpg" alt="Spider-Verse" class="poster-cinema" />
+                        <div class="absolute top-4 right-4 badge rating-badge-cinema font-bold text-lg px-4 py-2">🔥 8.5</div>
+                        <div class="play-overlay-cinema">
+                            <div class="play-btn-cinema">
+                                <i class="fas fa-play text-white text-3xl ml-2"></i>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="card-body p-6 relative z-5">
+                        <h3 class="card-title text-2xl font-bold text-white mb-2">Tandob</h3>
+                        <p class="text-base opacity-80 mb-4 font-medium">2025 • Animation • Action</p>
+                        <div class="flex justify-between items-center">
+                            <div class="rating rating-md">
+                                <input type="radio" name="rating-3" class="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" name="rating-3" class="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" name="rating-3" class="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" name="rating-3" class="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" name="rating-3" class="mask mask-star-2 bg-orange-400" />
+                            </div>
+                            <button class="btn btn-cinema btn-sm rounded-full font-bold text-base px-6">
+                                <i class="fas fa-play mr-2"></i>
+                                Play
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Movie Card 4 -->
+                <div class="movie-card-ultra cursor-pointer group">
+                    <figure class="relative overflow-hidden h-96">
+                        <img src="https://m.media-amazon.com/images/M/MV5BMGVmMjdlNzUtNWEzZS00YmM3LWJhM2EtMDkwNTVmMDk0ZmY0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpghttps://m.media-amazon.com/images/M/MV5BMGVmMjdlNzUtNWEzZS00YmM3LWJhM2EtMDkwNTVmMDk0ZmY0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Dune Part Two" class="poster-cinema" />
+                        <div class="absolute top-4 right-4 badge rating-badge-cinema font-bold text-lg px-4 py-2">🔥 8.9</div>
+                        <div class="play-overlay-cinema">
+                            <div class="play-btn-cinema">
+                                <i class="fas fa-play text-white text-3xl ml-2"></i>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="card-body p-6 relative z-5">
+                        <h3 class="card-title text-2xl font-bold text-white mb-2">KGF Chapter 3</h3>
+                        <p class="text-base opacity-80 mb-4 font-medium">2025 • Adventure • Sci-Fi</p>
+                        <div class="flex justify-between items-center">
+                            <div class="rating rating-md">
+                                <input type="radio" name="rating-4" class="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" name="rating-4" class="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" name="rating-4" class="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" name="rating-4" class="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" name="rating-4" class="mask mask-star-2 bg-orange-400" checked />
+                            </div>
+                            <button class="btn btn-cinema btn-sm rounded-full font-bold text-base px-6">
+                                <i class="fas fa-play mr-2"></i>
+                                Play
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Movie Card 5 -->
+                <div class="movie-card-ultra cursor-pointer group">
+                    <figure class="relative overflow-hidden h-96">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE1Wcwto-P-zrcdaJbTiM_rC3LeMg0US5y2g&s" alt="Barbie" class="poster-cinema" />
+                        <div class="absolute top-4 right-4 badge rating-badge-cinema font-bold text-lg px-4 py-2">🔥 8.7</div>
+                        <div class="play-overlay-cinema">
+                            <div class="play-btn-cinema">
+                                <i class="fas fa-play text-white text-3xl ml-2"></i>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="card-body p-6 relative z-5">
+                        <h3 class="card-title text-2xl font-bold text-white mb-2">Spirit</h3>
+                        <p class="text-base opacity-80 mb-4 font-medium">2026 • Comedy • Fantasy</p>
+                        <div class="flex justify-between items-center">
+                            <div class="rating rating-md">
+                                <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                            </div>
+                            <button class="btn btn-cinema btn-sm rounded-full font-bold text-base px-6">
+                                <i class="fas fa-play mr-2"></i>
+                                Play
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bollywood Movies Section -->
+    <section id="bollywood" class="py-32 px-6 lg:px-12 bg-gradient-to-br from-green-900/10 via-orange-900/10 to-red-900/10 relative">
+        <div class="max-w-8xl mx-auto">
+            <h2 class="text-6xl md:text-8xl font-black mb-20 text-center section-title-cinema fade-in-up">
+                <i class="fas fa-heart text-red-500 mr-8"></i>
+                <span class="logo-ultra">BOLLYWOOD BLOCKBUSTERS</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10 fade-in-up">
+                <!-- Bollywood Movie Cards -->
+                <div class="movie-card-ultra cursor-pointer group">
+                    <figure class="relative overflow-hidden h-96">
+                        <img src="https://m.media-amazon.com/images/M/MV5BMTYzOTE2NjkxN15BMl5BanBnXkFtZTgwMDgzMTg0MzE@._V1_FMjpg_UX1000_.jpg" alt="RRR" class="poster-cinema" />
+                        <div class="absolute top-4 right-4 badge rating-badge-cinema font-bold text-lg px-4 py-2">🔥 8.8</div>
+                        <div class="play-overlay-cinema">
+                            <div class="play-btn-cinema">
+                                <i class="fas fa-play text-white text-3xl ml-2"></i>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="card-body p-6 relative z-5">
+                        <h3 class="card-title text-2xl font-bold text-white mb-2">PK</h3>
+                        <p class="text-base opacity-80 mb-4 font-medium">2014 • Action • Drama</p>
+                        <button class="btn btn-cinema btn-sm rounded-full font-bold text-base px-6 w-full">
+                            <i class="fas fa-play mr-2"></i>
+                            Watch Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="movie-card-ultra cursor-pointer group">
+                    <figure class="relative overflow-hidden h-96">
+                        <img src="https://m.media-amazon.com/images/M/MV5BNzc4ZWQ3NmYtODE0Ny00YTQ4LTlkZWItNTBkMGQ0MmUwMmJlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Pathaan" class="poster-cinema" />
+                        <div class="absolute top-4 right-4 badge rating-badge-cinema font-bold text-lg px-4 py-2">⭐ 6.0</div>
+                        <div class="play-overlay-cinema">
+                            <div class="play-btn-cinema">
+                                <i class="fas fa-play text-white text-3xl ml-2"></i>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="card-body p-6 relative z-5">
+                        <h3 class="card-title text-2xl font-bold text-white mb-2">3 Idiots</h3>
+                        <p class="text-base opacity-80 mb-4 font-medium">2009 • Action • Thriller</p>
+                        <button class="btn btn-cinema btn-sm rounded-full font-bold text-base px-6 w-full">
+                            <i class="fas fa-play mr-2"></i>
+                            Watch Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="movie-card-ultra cursor-pointer group">
+                    <figure class="relative overflow-hidden h-96">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQTLFjghLxq2j1tzE3wLBGQwAacxpQDOA52A&s" alt="Dangal" class="poster-cinema" />
+                        <div class="absolute top-4 right-4 badge rating-badge-cinema font-bold text-lg px-4 py-2">⭐ 8.4</div>
+                        <div class="play-overlay-cinema">
+                            <div class="play-btn-cinema">
+                                <i class="fas fa-play text-white text-3xl ml-2"></i>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="card-body p-6 relative z-5">
+                        <h3 class="card-title text-2xl font-bold text-white mb-2">Saiyaara</h3>
+                        <p class="text-base opacity-80 mb-4 font-medium">2025 • Biography • Drama</p>
+                        <button class="btn btn-cinema btn-sm rounded-full font-bold text-base px-6 w-full">
+                            <i class="fas fa-play mr-2"></i>
+                            Watch Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="movie-card-ultra cursor-pointer group">
+                    <figure class="relative overflow-hidden h-96">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0Ayx7r4dFOrkKkNuZgSpsE0MytG0naYhV-Q&s" alt="3 Idiots" class="poster-cinema" />
+                        <div class="absolute top-4 right-4 badge rating-badge-cinema font-bold text-lg px-4 py-2">⭐ 8.4</div>
+                        <div class="play-overlay-cinema">
+                            <div class="play-btn-cinema">
+                                <i class="fas fa-play text-white text-3xl ml-2"></i>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="card-body p-6 relative z-5">
+                        <h3 class="card-title text-2xl font-bold text-white mb-2">HIT 3</h3>
+                        <p class="text-base opacity-80 mb-4 font-medium">2025 • Action • Drama</p>
+                        <button class="btn btn-cinema btn-sm rounded-full font-bold text-base px-6 w-full">
+                            <i class="fas fa-play mr-2"></i>
+                            Watch Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- South Indian Movies Section -->
+<section id="south-indian" class="py-32 px-6 lg:px-12 bg-gradient-to-br from-purple-900/10 via-pink-900/10 to-indigo-900/10 relative">
+    <div class="max-w-8xl mx-auto">
+        <h2 class="text-6xl md:text-8xl font-black mb-20 text-center section-title-cinema fade-in-up">
+            <i class="fas fa-fire text-orange-500 mr-8"></i>
+            <span class="logo-ultra">SOUTH INDIAN HITS</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10 fade-in-up">
+            <!-- South Indian Movie Cards -->
+            <div class="movie-card-ultra cursor-pointer group">
+                <figure class="relative overflow-hidden h-96">
+                    <img src="https://static.toiimg.com/photo/msid-99335139/99335139.jpg?433878" alt="Pushpa" class="poster-cinema" />
+                    <div class="absolute top-4 right-4 badge rating-badge-cinema font-bold text-lg px-4 py-2">🔥 7.6</div>
+                    <div class="play-overlay-cinema">
+                        <div class="play-btn-cinema">
+                            <i class="fas fa-play text-white text-3xl ml-2"></i>
+                        </div>
+                    </div>
+                </figure>
+                <div class="card-body p-6 relative z-5">
+                    <h3 class="card-title text-2xl font-bold text-white mb-2">Pushpa The Rule</h3>
+                    <p class="text-base opacity-80 mb-4 font-medium">2025 • Action • Crime</p>
+                    <button class="btn btn-cinema btn-sm rounded-full font-bold text-base px-6 w-full">
+                        <i class="fas fa-play mr-2"></i>
+                        Watch Now
+                    </button>
+                </div>
+            </div>
+
+            <div class="movie-card-ultra cursor-pointer group">
+                <figure class="relative overflow-hidden h-96">
+                    <img src="https://m.media-amazon.com/images/M/MV5BYjAwZWE2NmUtYjFjYy00Y2EyLTg4OTgtNmQ0NTQyY2M0NjE1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpghttps://m.media-amazon.com/images/M/MV5BYjAwZWE2NmUtYjFjYy00Y2EyLTg4OTgtNmQ0NTQyY2M0NjE1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Baahubali 2" class="poster-cinema" />
+                    <div class="absolute top-4 right-4 badge rating-badge-cinema font-bold text-lg px-4 py-2">⭐ 8.2</div>
+                    <div class="play-overlay-cinema">
+                        <div class="play-btn-cinema">
+                            <i class="fas fa-play text-white text-3xl ml-2"></i>
+                        </div>
+                    </div>
+                </figure>
+                <div class="card-body p-6 relative z-5">
+                    <h3 class="card-title text-2xl font-bold text-white mb-2">Baahubali 2</h3>
+                    <p class="text-base opacity-80 mb-4 font-medium">2017 • Action • Fantasy</p>
+                    <button class="btn btn-cinema btn-sm rounded-full font-bold text-base px-6 w-full">
+                        <i class="fas fa-play mr-2"></i>
+                        Watch Now
+                    </button>
+                </div>
+            </div>
+
+            <div class="movie-card-ultra cursor-pointer group">
+                <figure class="relative overflow-hidden h-96">
+                    <img src="https://img.ap7am.com/froala-uploads/20220327fr62407d8a817ea.jpg" alt="KGF Chapter 2" class="poster-cinema" />
+                    <div class="absolute top-4 right-4 badge rating-badge-cinema font-bold text-lg px-4 py-2">⭐ 8.4</div>
+                    <div class="play-overlay-cinema">
+                        <div class="play-btn-cinema">
+                            <i class="fas fa-play text-white text-3xl ml-2"></i>
+                        </div>
+                    </div>
+                </figure>
+                <div class="card-body p-6 relative z-5">
+                    <h3 class="card-title text-2xl font-bold text-white mb-2">KGF Chapter 2</h3>
+                    <p class="text-base opacity-80 mb-4 font-medium">2022 • Action • Thriller</p>
+                    <button class="btn btn-cinema btn-sm rounded-full font-bold text-base px-6 w-full">
+                        <i class="fas fa-play mr-2"></i>
+                        Watch Now
+                    </button>
+                </div>
+            </div>
+
+            <div class="movie-card-ultra cursor-pointer group">
+                <figure class="relative overflow-hidden h-96">
+                    <img src="https://i.pinimg.com/736x/f1/d5/ea/f1d5ea79a8838c36862785e331bc3345.jpg" alt="Vikram" class="poster-cinema" />
+                    <div class="absolute top-4 right-4 badge rating-badge-cinema font-bold text-lg px-4 py-2">⭐ 8.3</div>
+                    <div class="play-overlay-cinema">
+                        <div class="play-btn-cinema">
+                            <i class="fas fa-play text-white text-3xl ml-2"></i>
+                        </div>
+                    </div>
+                </figure>
+                <div class="card-body p-6 relative z-5">
+                    <h3 class="card-title text-2xl font-bold text-white mb-2">Vikram</h3>
+                    <p class="text-base opacity-80 mb-4 font-medium">2022 • Action • Thriller</p>
+                    <button class="btn btn-cinema btn-sm rounded-full font-bold text-base px-6 w-full">
+                        <i class="fas fa-play mr-2"></i>
+                        Watch Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Bengali Nostalgic Section -->
+<section id="hollywood" class="py-32 px-6 lg:px-12 bg-gradient-to-br from-gray-900/10 via-blue-900/10 to-black/10 relative">
+    <div class="max-w-8xl mx-auto">
+        <h2 class="text-6xl md:text-8xl font-black mb-20 text-center section-title-cinema fade-in-up">
+            <i class="fas fa-film text-blue-500 mr-8"></i>
+            <span class="logo-ultra">Bengali Nostalgic</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10 fade-in-up">
+            <!-- Movie Card 1 -->
+            <div class="movie-card-ultra cursor-pointer group">
+                <figure class="relative overflow-hidden h-96">
+                    <img src="https://lh3.googleusercontent.com/proxy/dyOtYiC35yLwnmqmbp0btj2hXIiqZ72RNQBiq2rDn1K9btF0Y994uBh-W8ZjChDTuzZPBnL8rebukZ-1GXZNbCFVczLMU12N6z6nr5JMBOsdrsp7TKzfamx0kpx1h0S_lKM" alt="The Batman" class="poster-cinema" />
+                    <div class="absolute top-4 right-4 badge rating-badge-cinema font-bold text-lg px-4 py-2">⭐ 7.8</div>
+                    <div class="play-overlay-cinema">
+                        <div class="play-btn-cinema">
+                            <i class="fas fa-play text-white text-3xl ml-2"></i>
+                        </div>
+                    </div>
+                </figure>
+                <div class="card-body p-6 relative z-5">
+                    <h3 class="card-title text-2xl font-bold text-white mb-2">Dui Prithibi </h3>
+                    <p class="text-base opacity-80 mb-4 font-medium">2010 • Action • Crime</p>
+                    <button class="btn btn-cinema btn-sm rounded-full font-bold text-base px-6 w-full">
+                        <i class="fas fa-play mr-2"></i>
+                        Watch Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Movie Card 2 -->
+            <div class="movie-card-ultra cursor-pointer group">
+                <figure class="relative overflow-hidden h-96">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMTU5NjI5NTQwNF5BMl5BanBnXkFtZTgwODY1Mzg1MDI@._V1_.jpg" alt="No Time to Die" class="poster-cinema" />
+                    <div class="absolute top-4 right-4 badge rating-badge-cinema font-bold text-lg px-4 py-2">⭐ 7.3</div>
+                    <div class="play-overlay-cinema">
+                        <div class="play-btn-cinema">
+                            <i class="fas fa-play text-white text-3xl ml-2"></i>
+                        </div>
+                    </div>
+                </figure>
+                <div class="card-body p-6 relative z-5">
+                    <h3 class="card-title text-2xl font-bold text-white mb-2">Shedin Dekha Hoyechilo</h3>
+                    <p class="text-base opacity-80 mb-4 font-medium">2010 • Action • Adventure</p>
+                    <button class="btn btn-cinema btn-sm rounded-full font-bold text-base px-6 w-full">
+                        <i class="fas fa-play mr-2"></i>
+                        Watch Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Movie Card 3 -->
+            <div class="movie-card-ultra cursor-pointer group">
+                <figure class="relative overflow-hidden h-96">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPuJIVZSkwGGW1r7QWnFvxj8kg5XmCORjFIA&s" alt="Fast X" class="poster-cinema" />
+                    <div class="absolute top-4 right-4 badge rating-badge-cinema font-bold text-lg px-4 py-2">⭐ 5.8</div>
+                    <div class="play-overlay-cinema">
+                        <div class="play-btn-cinema">
+                            <i class="fas fa-play text-white text-3xl ml-2"></i>
+                        </div>
+                    </div>
+                </figure>
+                <div class="card-body p-6 relative z-5">
+                    <h3 class="card-title text-2xl font-bold text-white mb-2">Bacchan</h3>
+                    <p class="text-base opacity-80 mb-4 font-medium">2014 • Action • Adventure</p>
+                    <button class="btn btn-cinema btn-sm rounded-full font-bold text-base px-6 w-full">
+                        <i class="fas fa-play mr-2"></i>
+                        Watch Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+    <!-- Best of All Time Section -->
+    <section id="hollywood" class="py-32 px-6 lg:px-12 bg-gradient-to-br from-blue-900/10 via-purple-900/10 to-cyan-900/10 relative">
+        <div class="max-w-8xl mx-auto">
+            <h2 class="text-6xl md:text-8xl font-black mb-20 text-center section-title-cinema fade-in-up">
+                <i class="fas fa-film text-blue-500 mr-8"></i>
+                <span class="logo-ultra">Best of All Time</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10 fade-in-up">
+                <!-- Hollywood Movie Cards -->
+                <div class="movie-card-ultra cursor-pointer group">
+                    <figure class="relative overflow-hidden h-96">
+                        <img src="https://lh5.googleusercontent.com/proxy/Ix-HXlapdpWu58m9nAbBUmA8p9dTtD3CmnpEVHxgEQJVCaVJ7l-0IDJKOlA00N2Rb_qAnPLSaLhgZWQylbSIdpPgzOIPbbgz4zjHFKuWaEmNtsvhbw" alt="Top Gun Maverick" class="poster-cinema" />
+                        <div class="absolute top-4 right-4 badge rating-badge-cinema font-bold text-lg px-4 py-2">⭐ 8.6</div>
+                        <div class="play-overlay-cinema">
+                            <div class="play-btn-cinema">
+                                <i class="fas fa-play text-white text-3xl ml-2"></i>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="card-body p-6 relative z-5">
+                        <h3 class="card-title text-2xl font-bold text-white mb-2">Ratsasan</h3>
+                        <p class="text-base opacity-80 mb-4 font-medium">2018 • Action • Drama</p>
+                        <button class="btn btn-cinema btn-sm rounded-full font-bold text-base px-6 w-full">
+                            <i class="fas fa-play mr-2"></i>
+                            Watch Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="movie-card-ultra cursor-pointer group">
+                    <figure class="relative overflow-hidden h-96">
+                        <img src="https://e1.pxfuel.com/desktop-wallpaper/710/388/desktop-wallpaper-suriya-soorarai-pottru-teaser-release-jan-7th-poster-soorarai-pottru-movie.jpg" alt="KGF Chapter 2" class="poster-cinema" />
+                        <div class="absolute top-4 right-4 badge rating-badge-cinema font-bold text-lg px-4 py-2">⭐ 8.3</div>
+                        <div class="play-overlay-cinema">
+                            <div class="play-btn-cinema">
+                                <i class="fas fa-play text-white text-3xl ml-2"></i>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="card-body p-6 relative z-5">
+                        <h3 class="card-title text-2xl font-bold text-white mb-2">Soorarai Pottru </h3>
+                        <p class="text-base opacity-80 mb-4 font-medium">2020 • Action • Drama</p>
+                        <button class="btn btn-cinema btn-sm rounded-full font-bold text-base px-6 w-full">
+                            <i class="fas fa-play mr-2"></i>
+                            Watch Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="movie-card-ultra cursor-pointer group">
+                    <figure class="relative overflow-hidden h-96">
+                        <img src="https://m.media-amazon.com/images/M/MV5BNDUxOGQ5NzItYmM0ZC00YTg3LWFmZjEtOTEwZDBmMTE5Mzc1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Puspha" class="poster-cinema" />
+                        <div class="absolute top-4 right-4 badge rating-badge-cinema font-bold text-lg px-4 py-2">⭐ 7.6</div>
+                        <div class="play-overlay-cinema">
+                            <div class="play-btn-cinema">
+                                <i class="fas fa-play text-white text-3xl ml-2"></i>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="card-body p-6 relative z-5">
+                        <h3 class="card-title text-2xl font-bold text-white mb-2">Robot</h3>
+                        <p class="text-base opacity-80 mb-4 font-medium">2010 • Action • Crime</p>
+                        <button class="btn btn-cinema btn-sm rounded-full font-bold text-base px-6 w-full">
+                            <i class="fas fa-play mr-2"></i>
+                            Watch Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="movie-card-ultra cursor-pointer group">
+                    <figure class="relative overflow-hidden h-96">
+                        <img src="https://m.media-amazon.com/images/M/MV5BZDk2NWQyMjQtODlkYi00YTJjLTkxMGItMGU0ZDExODI3OWIxXkEyXkFqcGc@._V1_.jpg" alt="Master" class="poster-cinema" />
+                        <div class="absolute top-4 right-4 badge rating-badge-cinema font-bold text-lg px-4 py-2">⭐ 7.8</div>
+                        <div class="play-overlay-cinema">
+                            <div class="play-btn-cinema">
+                                <i class="fas fa-play text-white text-3xl ml-2"></i>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="card-body p-6 relative z-5">
+                        <h3 class="card-title text-2xl font-bold text-white mb-2">Kaithi</h3>
+                        <p class="text-base opacity-80 mb-4 font-medium">2019 • Action • Thriller</p>
+                        <button class="btn btn-cinema btn-sm rounded-full font-bold text-base px-6 w-full">
+                            <i class="fas fa-play mr-2"></i>
+                            Watch Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Statistics Section -->
+    <section class="py-32 px-6 lg:px-12 bg-gradient-to-r from-purple-900/20 via-blue-900/20 to-cyan-900/20 relative">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-6xl md:text-8xl font-black mb-20 text-center section-title-cinema fade-in-up">
+                <i class="fas fa-chart-line text-green-500 mr-8"></i>
+                <span class="logo-ultra">PLATFORM STATS</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 fade-in-up">
+                <div class="movie-card-ultra text-center p-8">
+                    <div class="text-6xl mb-4">🎬</div>
+                    <div class="text-4xl font-black logo-ultra mb-2">50K+</div>
+                    <div class="text-xl opacity-80">Movies & Shows</div>
+                </div>
+                <div class="movie-card-ultra text-center p-8">
+                    <div class="text-6xl mb-4">👥</div>
+                    <div class="text-4xl font-black logo-ultra mb-2">10M+</div>
+                    <div class="text-xl opacity-80">Active Users</div>
+                </div>
+                <div class="movie-card-ultra text-center p-8">
+                    <div class="text-6xl mb-4">🌍</div>
+                    <div class="text-4xl font-black logo-ultra mb-2">190+</div>
+                    <div class="text-xl opacity-80">Countries</div>
+                </div>
+                <div class="movie-card-ultra text-center p-8">
+                    <div class="text-6xl mb-4">⭐</div>
+                    <div class="text-4xl font-black logo-ultra mb-2">4.9/5</div>
+                    <div class="text-xl opacity-80">User Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Footer -->
+    <footer class="py-20 px-6 lg:px-12 bg-gradient-to-t from-black/80 to-transparent border-t border-purple-500/20">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <div class="text-5xl font-black logo-ultra mb-4">✨ PK Verse Pro</div>
+                <p class="text-xl opacity-80 max-w-2xl mx-auto">
+                    Experience the future of entertainment with our premium streaming platform.
+                    Unlimited movies, zero ads, ultimate quality.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 text-purple-400">Movies</h3>
+                    <ul class="space-y-2 opacity-80">
+                        <li><a href="#" class="hover:text-purple-400 transition-colors">Latest Releases</a></li>
+                        <li><a href="#" class="hover:text-purple-400 transition-colors">Top Rated</a></li>
+                        <li><a href="#" class="hover:text-purple-400 transition-colors">Coming Soon</a></li>
+                        <li><a href="#" class="hover:text-purple-400 transition-colors">Classics</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 text-blue-400">Categories</h3>
+                    <ul class="space-y-2 opacity-80">
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Action</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Drama</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Comedy</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Thriller</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 text-green-400">Support</h3>
+                    <ul class="space-y-2 opacity-80">
+                        <li><a href="#" class="hover:text-green-400 transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-green-400 transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-green-400 transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-green-400 transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 text-yellow-400">Connect</h3>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-3xl hover:text-yellow-400 transition-colors"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-3xl hover:text-yellow-400 transition-colors"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-3xl hover:text-yellow-400 transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-3xl hover:text-yellow-400 transition-colors"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="opacity-80">
+                        <p>Subscribe to our newsletter</p>
+                        <div class="flex mt-2">
+                            <input type="email" placeholder="Enter email" class="input search-cinema flex-1 mr-2" />
+                            <button class="btn btn-cinema">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-purple-500/20 pt-8 text-center opacity-60">
+                <p>&copy; 2025 PK Verse Pro. All rights reserved. Made with ❤️ for movie lovers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Enhanced Interactions -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar-ultra');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in-up elements
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Enhanced movie card interactions
+        document.querySelectorAll('.movie-card-ultra').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.zIndex = '10';
+            });
+
+            card.addEventListener('mouseleave', function() {
+                this.style.zIndex = '1';
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.querySelector('.search-cinema');
+        searchInput.addEventListener('focus', function() {
+            this.style.transform = 'scale(1.02)';
+        });
+
+        searchInput.addEventListener('blur', function() {
+            this.style.transform = 'scale(1)';
+        });
+
+        // Add dynamic particle generation
+        function createDynamicParticle() {
+            const particle = document.createElement('div');
+            const size = Math.random() * 4 + 2;
+            const colors = ['rgba(139, 92, 246, 0.6)', 'rgba(6, 182, 212, 0.4)', 'rgba(236, 72, 153, 0.3)'];
+
+            particle.className = 'particle';
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.borderRadius = '50%';
+            particle.style.position = 'absolute';
+            particle.style.animation = `particleFloat ${8 + Math.random() * 4}s ease-in-out infinite`;
+            particle.style.animationDelay = Math.random() * 2 + 's';
+
+            document.querySelector('.particles-container').appendChild(particle);
+
+            // Remove particle after animation
+            setTimeout(() => {
+                particle.remove();
+            }, 12000);
+        }
+
+        // Generate particles periodically
+        setInterval(createDynamicParticle, 3000);
+
+        // Logo click effect
+        document.querySelector('.logo-ultra').addEventListener('click', function() {
+            this.style.animation = 'none';
+            setTimeout(() => {
+                this.style.animation = 'ultraGradient 8s ease-in-out infinite';
+            }, 10);
+        });
+    </script>
+</body>
+</html>
